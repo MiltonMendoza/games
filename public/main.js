@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:7878', { 'forceNew': true} );
+var socket = io.connect('http://milmeng-milmeng.a3c1.starter-us-west-1.openshiftapps.com', { 'forceNew': true} );
 socket.on('messages', function(data){
     console.log(data);
     render(data);

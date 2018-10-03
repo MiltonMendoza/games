@@ -71,6 +71,6 @@ io.on('connection', function(socket,){
     });
 });
 
-server.listen('7878', function(){
+server.listen('80', function(){
     console.log("Server init test...");
 });

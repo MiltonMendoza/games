@@ -13,13 +13,22 @@
     <body>
         <h1>My app</h1>
         <h4 id="user-panel"></h4>
+        <button type="button" id="google-login-button" class="btn btn-info">Change User</button>
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <table id="messages" class="table table-hover"></table>
                 <form onsubmit="return addMessage(this)">
-                    <input type="text" id="text" placeholder="Your mess" class="form-control">
-                    <input type="submit" value="Send" class="btn btn-primary">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" id="text" placeholder="Your mess" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="submit" value="Send" class="btn btn-primary">
+                        </div>
+                    </div>
+                    
+                    
                 </form>
             </div>
             <div class="col-md-4"></div>
@@ -30,7 +39,7 @@
 
         <button type="button" onclick="throwDice()" class="btn btn-default"><div id="display-dice">1
             
-        <button type="button" id="google-login-button">Change User</button>
+        
         </div></button>
         <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};HandleGoogleApiLibrary()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
         <script>

@@ -15,7 +15,7 @@ socket.on('display-dice', function(data){
 
 function render(data){
     var html = data.map(function(elem, index){
-        return ('<tr><th>' + elem.author + '</th>:<td>' + elem.text + '</td></tr>');
+        return ('<tr><th>' + elem.author + ':</th><td>' + elem.text + '</td></tr>');
     }).join(" ");  
     document.getElementById('messages').innerHTML = html;
 }

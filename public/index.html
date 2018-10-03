@@ -13,13 +13,20 @@
     <body>
         <h1>My app</h1>
         <h4 id="user-panel"></h4>
-        <div id="messages"></div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <table id="messages" class="table table-hover"></table>
+                <form onsubmit="return addMessage(this)">
+                    <input type="text" id="text" placeholder="Your mess" class="form-control">
+                    <input type="submit" value="Send" class="btn btn-primary">
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>    
 
         <br>
-        <form onsubmit="return addMessage(this)">
-            <input type="text" id="text" placeholder="Your mess">
-            <input type="submit" value="Send">
-        </form>
+        
 
         <button type="button" onclick="throwDice()" class="btn btn-default"><div id="display-dice">1
             
@@ -57,6 +64,7 @@
                             }
                         }, 
                         function(error) {
+                            user = gapi.auth2.getAuthInstance();
                             // Error occurred
                             // console.log(error) to find the reason
                             console.log(error);

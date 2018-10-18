@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>My Test</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
     <div class="card">
@@ -11,8 +11,16 @@
             
         </div>
         <div class="card-footer" id="control-board" style="padding: 0">
+            <div class="row">
+                <div class="col-md-6 col-xs-6">
+                    <div id="joystick" style="position: absolute; width: 50%; height: 300px;"></div>
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <button class="btn btn-primary" id="shot-player">Shot</button>
+                </div>
+            </div>
             
-            <div id="joystick" style="position: absolute; width: 50%; height: 200px;"></div>
+            
                      
             <span id="test"></span>
         </div>
@@ -20,15 +28,14 @@
     
     
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://code.createjs.com/preloadjs-0.6.2.min.js"></script>
-    <script src="/js/kinetic.min.js"></script>
-    <script src="/js/particles.min.js"></script>
-    <script src="/js/solution.js"></script>
-    <script src="/js/hero.js"></script>
-    <script src="/js/platform.js"></script>
-    <script src="/js/nipplejs.min.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/lib/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="/js/lib/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/js/lib/preloadjs-0.6.2.min.js"></script>
+    <script src="/js/lib/kinetic.min.js"></script>
+    <script src="/js/lib/nipplejs.min.js"></script>
+    <script src="/js/lib/solution.js"></script>
+    <script src="/js/engine/hero.js"></script>
+    <script src="/js/engine/platform.js"></script>   
+    <script src="/js/engine/main.js"></script>
 </body>
 </html>

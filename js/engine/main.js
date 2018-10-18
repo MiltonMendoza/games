@@ -72,7 +72,8 @@ function addKeyboardEvents(){
 function checkCollision(){    
     for (i in walls){
         try{
-            if (intersect(walls[i].rect, player.rect).length != 0){                    
+            if (intersect(walls[i].rect, player.rect).length != 0){                
+                
                 player.x = prevPosition.x;
                 player.y = prevPosition.y;
                 player.reloadRect();
@@ -154,30 +155,7 @@ function checkCollisionShot(shot){
         shot.remove();
         return true;
     }
-    rect = [
-        {
-            x: parseInt(shot.style.left.replace('px', '')), 
-            y: parseInt(shot.style.top.replace('px', ''))
-        },
-        {
-            x: parseInt(shot.style.left.replace('px', '')) + parseInt(shot.style.width.replace('px', '')),
-            y: parseInt(shot.style.top.replace('px', ''))
-        },
-        {
-            x: parseInt(shot.style.left.replace('px', '')) + parseInt(shot.style.width.replace('px', '')), 
-            y: parseInt(shot.style.top.replace('px', '')) + parseInt(shot.style.height.replace('px', ''))
-        },
-        {
-            x: parseInt(shot.style.left.replace('px', '')), 
-            y: parseInt(shot.style.top.replace('px', '')) + parseInt(shot.style.height.replace('px', ''))
-        }
-    ]
-    for (i in walls){     
-        if (intersect(walls[i].rect, rect).length > 0){ 
-            shot.remove();                   
-            return true;
-        }               
-    }        
+        
     return false;
 }
 function moveShots(){

@@ -7,11 +7,9 @@ var messages = [];
 var game = {
     id: 1,
     turn: 0,
-    players: [
-        {
+    players: [{
             id: 0,
-            slug: [
-                {
+            slug: [{
                     color: "yellow",
                     position: 0
                 },
@@ -31,8 +29,7 @@ var game = {
         },
         {
             id: 1,
-            slug: [
-                {
+            slug: [{
                     color: "blue",
                     position: 0
                 },
@@ -53,31 +50,31 @@ var game = {
     ]
 }
 app.use(express.static('public'));
-app.get('/', function(req, res){
+app.get('/', function(req, res) {
     res.status(200).send('Hi world');
 });
 
-io.on('connection', function(socket,){
+io.on('connection', function(socket, ) {
     console.log('Somebody has been connected!');
     socket.emit('messages', messages);
     socket.emit('start-game', game);
 
-    socket.on('move-player', function(data){
-        for (i in players){
-            if (players[i].nickname == data.nickname){
+    socket.on('move-player', function(data) {
+        for (i in players) {
+            if (players[i].nickname == data.nickname) {
                 players[i] = data;
                 break;
             }
         }
         io.sockets.emit('move-players', data);
     });
-    socket.on('init-player', function(data){
+    socket.on('init-player', function(data) {
         console.log(data);
         players.push(data);
         io.sockets.emit('draw-players', players);
     });
 });
 
-server.listen('8080', '172.16.0.134', function(){
+server.listen('8080', function() {
     console.log("Server init test...");
 });

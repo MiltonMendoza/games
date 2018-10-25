@@ -1,4 +1,4 @@
-var socket = io.connect('http://192.168.43.110:8080', { 'forceNew': true });
+var socket = io.connect('http://milmeng-milmeng.a3c1.starter-us-west-1.openshiftapps.com', { 'forceNew': true });
 var boardSize;
 var keyboard = {};
 var intv;

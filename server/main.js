@@ -53,6 +53,9 @@ app.use(express.static('public'));
 app.get('/', function(req, res) {
     res.status(200).send('Hi world');
 });
+app.get('/login', function(req, res) {
+    res.status(200).send('Login in ...');
+});
 
 io.on('connection', function(socket, ) {
     console.log('Somebody has been connected!');

@@ -1,4 +1,4 @@
-var socket = io.connect('http://192.168.43.110:8080', { 'forceNew': true });
+var socket = io.connect('http://172.16.0.134:8080', { 'forceNew': true });
 var boardSize;
 var keyboard = {};
 var intv;
@@ -33,7 +33,12 @@ socket.on('draw-players', function(data) {
             _player.nickname = data[k].nickname;
             _player.limit = data[k].limit;
             players.push(_player);
-            _player.draw();
+            //_player.draw();
+        }
+    }
+    for (k in players) {
+        if (players[k].nickname != player.nickname) {
+            players[k].draw();
         }
     }
 });
@@ -312,7 +317,7 @@ function movePlayer() {
                     prevPosition = { x: player.x, y: player.y };
                     player.down();
                     break;
-                case 'down':
+                case 'down':right
                     player.down();
                     break;
                 case 'down-right':
@@ -324,22 +329,41 @@ function movePlayer() {
             }
             checkCollision();
         }
-    } else {
-        if (keyboard[65]) {
-            player.angle = 0;
-            player.left();
-        }
-        if (keyboard[68]) {
-            player.angle = 180;
+    } else {       
+        if (keyboard[68] && !keyboard[87] && !keyboard[83]) {
+            player.angle = 90;
             player.right();
         }
-
-        if (keyboard[87]) {
-            player.angle = 90;
+        if (keyboard[68] && keyboard[87]){
+            player.angle = 45;
+            player.right();
             player.up();
         }
-        if (keyboard[83]) {
+        if (keyboard[87] && !keyboard[68] && !keyboard[65]) {
+            player.angle = 0;
+            player.up();
+        }
+        if (keyboard[65] && keyboard[87]){
+            player.angle = 315;
+            player.left();
+            player.up();
+        }
+        if (keyboard[65] && !keyboard[87] && !keyboard[83]) {
             player.angle = 270;
+            player.left();
+        }
+        if (keyboard[65] && keyboard[83]){
+            player.angle = 225;
+            player.left();
+            player.down();
+        }
+        if (keyboard[83] && !keyboard[65] && !keyboard[68]) {
+            player.angle = 180;
+            player.down();
+        }
+        if (keyboard[68] && keyboard[83]){
+            player.angle = 135;
+            player.right();
             player.down();
         }
     }
